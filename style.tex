@@ -1,0 +1,184 @@
+\def\slides {
+\_slides
+\_footline={}
+\_style O
+\_everylist={\_novspaces\_ifcase\_ilevel\_or \_style o \_or \_style - \_else \_style - \_fi}
+\_margins/1 a5l (15,15,10,10)mm
+\_backgroundpic{bgwide.jpg}
+}
+
+\_def\wide {
+    \_margins/1 (263,148) (15,15,10,10)mm
+    \_backgroundpic{bgwide.jpg}
+}
+
+\_def\center#1{
+    {
+            \_leftskip=0pt plus1fill \_rightskip=\_leftskip
+            #1\_par
+        }
+}
+
+\_def\emph#1{%
+    {%
+            \setrgbcolor{1 .75 0}%
+            #1%
+        }%
+}
+
+\_def\printtit #1{
+    \_vglue\_titskip
+    {
+        \IndieFlower\rm
+        \typosize[80/50]
+        \center{\_scantextokens{#1}}
+    }
+    \_vfil
+}
+\_def\tit{\_scantoeol\printtit}
+
+\_newcount\chapnum
+\chapnum=-1
+
+\_def\printchap #1{
+    {
+            \IndieFlower\rm
+            \typosize[60/70]
+            \_scantextokens{#1}\_par
+        }
+    \_bigskip
+    \_advance\chapnum by 1
+}
+\_def\chap{\_scantoeol\printchap}
+
+\_def\printsec #1{
+    {
+            \typosize[30/35]
+            \center{\emph{\_scantextokens{#1}}}
+        }
+    \_bigskip
+}
+\_def\sec{\_scantoeol\printsec}
+
+\_def\chapcnt {
+    \_vfill\_hfill
+    \_newcount\loops
+    \_newcount\looped
+    \looped=0
+    \_newcount\version
+    \_newcount\lines
+    \_directlua{
+        tex.count.loops = tex.count.chapnum // 5
+        tex.count.lines = math.fmod(tex.count.chapnum,5)
+    }
+    \loop
+    \_directlua{
+        tex.count.version = math.fmod(tex.count.loops,5)
+    }
+    \ifnum \looped=0
+        {
+        \picheight=30pt
+        \inspic {\_the\version-\_the\lines.pdf}
+        }
+    \else
+        {
+            \picheight=30pt
+            \inspic {\_the\version-4.pdf}
+        }
+    \fi
+    \advance \loops by -1
+    \advance \looped by 1
+    \unless\ifnum \loops<0
+    \repeat
+}
+
+\_def\printpicquote#1{
+    \newbox\leftcol
+    \setbox\leftcol=\vbox{
+        \picw=\the\picsize
+        \inspic{\the\picpath}
+    }
+    \newbox\rightcol
+    \setbox\rightcol=\vbox{
+        \hsize=\the\textsize
+        \typosize[25/30]
+        #1
+    }
+    \hfill\vfill
+    \hbox{
+        \box\leftcol
+        \hskip0.05\hsize
+        \box\rightcol
+    }
+    \hfill\vfill
+}
+
+\_def\picquote#1#2{
+\_newtoks\picpath
+\picpath={#1}
+\_newdimen\picsize
+\picsize=#2
+\_newdimen\textsize
+\_directlua{
+    tex.dimen.textsize = tex.dimen.hsize - tex.dimen.picsize - (0.05 * tex.dimen.hsize)
+}
+\_scantoeol\printpicquote
+}
+
+\_def\centerpic#1#2{
+    \_hfill\_vfill
+    {
+        \picw=#2
+        \centerline{\inspic{#1}}
+    }
+    \_hfill\_vfill
+}
+
+\_def\cols#1#2{
+    \newbox\leftcol
+    \setbox\leftcol=\vtop{
+        \hsize=0.5\hsize
+        #1
+    }
+    \newbox\rightcol
+    \setbox\rightcol=\vtop{
+        \hsize=0.5\hsize
+        #2
+    }
+    \hbox{
+        \vtop{\box\leftcol}
+        \hskip0.05\hsize
+        \vtop{\box\rightcol}
+        \hfil
+    }
+}
+
+\_def\printshout #1{
+    \_hfill\_vfill
+    {
+        \typosize[90/50]
+        \center{\_scantextokens{#1}}
+    }
+    \_hfill\_vfill
+}
+
+\_def\shout{
+    \_scantoeol\printshout
+}
+
+\_def\highlight#1{%
+    \setbox0=\hbox{#1}%
+    \leavevmode \rlap{\emph{\strut \vrule width\wd0}}\box0
+}
+
+\_def\small#1{%
+    {%
+            \typosize[13/20]%
+            #1%
+        }%
+}
+
+\_picdir={img/}
+
+\_fontfam[IndieFlower]
+\_fontfam[RobotoSlab]

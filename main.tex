@@ -1,0 +1,113 @@
+% !TeX root = main.tex
+
+\input style
+\slides
+%\wide
+\cslang
+
+\tit Prezentace
+\subtit Filip Rund
+\subtit \today
+\pg;
+
+\chap O čem je tato prezentace?
+\chapcnt
+\pg;
+
+\sec Téma této prezentace
+* Tato prezentace nemá žádné téma
+* Jejím cílem je předvést šablonu designu
+* I tento text je pouze výplňový
+\begitems
+* na prázdném snímku se totiž design špatně ukazuje
+\enditems
+* Šablonu lze snadno použít zahrnutím řádku \code{\\input style} na začátek \OpTeX\ souboru
+* Použití šablony usnadní tvorbu přehledné a pohledné prezentace
+\pg;
+
+\chap Název oddílu
+\small{Oddíly jsou číslovány vpravo dole}
+\chapcnt
+\pg;
+
+\sec Výhody a nevýhody rozložení do dvou sloupců
+\cols{
+    {\bf Výhody:}
+    * Lepší přehlednost
+    * Ideální pro seznamy výhod a nevýhod
+    * Může být využit celý prostor na snímku
+}{
+    {\bf Nevýhody:}
+    * Na jeden řádek se vejde méně textu
+    * Mám číst dříve sloupce, nebo řádky?
+    * Může vést k zahlcení informacemi
+}
+\pg;
+
+\chap Obrázky
+\chapcnt
+\pg;
+
+\picquote{quote.png}{180pt} Toto místo je jako dělané pro nějaký dojemný motivační citát
+\pg;
+
+\sec Další slide s obrázkem
+\centerpic{img.png}{250pt}
+\center{Pokud obrázek potřebuje bližší vysvětlení, je tu od toho tento popis}
+\pg;
+
+\chap Další maličkosti
+\chapcnt
+\pg;
+
+\shout Hejhola!
+\center{Tento výkřik může sloužit k upoutání pozornosti na nějakou důležitou informaci.}
+\pg;
+
+\sec Zvýraznění
+Důležitý text lze \highlight{zvýraznit} příkazem \code{\\highlight{}}.
+\medskip
+Některá slova lze také \emph{zdůraznit} příkazem \code{\\emph{}}.
+\medskip
+Text lze také \small{zmenšit} uvnitř \code{\\small{}}.
+\medskip
+\center{\code{\\center{}} dovede zarovnat předaný obsah na střed snímku.}
+\pg;
+
+\chap Blíží se konec
+\small{Počítadlo oddílů vpravo dole právě uzavřelo prvních 5}
+\chapcnt
+\pg;
+
+\sec Seznam vytvořených maker
+* \code{\\center{text}} – zarovnání na střed
+* \code{\\chapcnt} – výpis počtu oddílů (čárkami)
+* \code{\\picquote{filename}{width} quote text} – zobrazení obrázku a citátu vedle sebe
+* \code{\\centerpic{filename}{width}} – vložení obrázku na střed snímku
+* \code{\\cols{left column}{right column}} – rozdělení obsahu do dvou polovin snímku
+* \code{\\shout text} – obří text na středu snímku
+* \code{\\highlight{text}} – žlutý podkres textu
+* \code{\\emph{text}} – žluté zdůraznění textu
+* \code{\\small{text}} – zmenšení textu
+\pg;
+
+\chap Závěr
+\chapcnt
+\pg;
+
+\sec Děkuji za pozornost!
+\centerline{Nějaké otázky?}
+\medskip
+\centerline{rundfili@fit.cvut.cz}
+\pg;
+
+\sec Zdroje
+    {\bf Vědomosti:}
+* \url{https://petr.olsak.net/optex/}
+* \url{https://www.luatex.org/}
+\medskip
+{\bf Obrázky:}
+* \url{https://pixabay.com/cs/photos/pap\%C3\%ADr-textura-balic\%C3\%AD-pap\%C3\%ADr-pozad\%C3\%AD-3155438/}
+* \url{https://pixabay.com/cs/illustrations/planeta-sci-fi-sv\%C4\%9Bt-fantazie-sen-1702788/}
+* \url{https://pixabay.com/cs/illustrations/mo\%C5\%99e-slunce-mraky-krajina-malov\%C3\%A1n\%C3\%AD-7456253/}
+\pg.
